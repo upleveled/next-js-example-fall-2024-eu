@@ -34,8 +34,10 @@ jobs:
           node-version: 'lts/*'
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install dependencies, failing on pnpm v10 ignored build scripts
+        # TODO: Switch to future `pnpm install` option to fail on pnpm v10 ignored build scripts, if accepted:
+        # - https://github.com/pnpm/pnpm/issues/9032#issuecomment-2647428724
+        run: pnpm install | { has_ignored_build_scripts=false; while IFS= read -r line; do echo "$line"; [[ "$line" == *"Ignored build scripts:"* ]] && has_ignored_build_scripts=true; done; [[ "$has_ignored_build_scripts" = false ]]; }
       - name: Jest unit tests
         run: pnpm jest
       - name: Run database migrations
