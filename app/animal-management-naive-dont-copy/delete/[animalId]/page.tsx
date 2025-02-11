@@ -8,9 +8,9 @@ type Props = {
 };
 
 export default async function DeleteAnimalNaivePage(props: Props) {
-  const animal = await deleteAnimalInsecure({
-    id: Number((await props.params).animalId),
-  });
+  const animal = await deleteAnimalInsecure(
+    Number((await props.params).animalId),
+  );
 
   if (!animal) {
     notFound();

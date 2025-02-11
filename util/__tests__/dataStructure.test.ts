@@ -2,13 +2,14 @@ import { expect, test } from '@jest/globals';
 import { reduceAnimalsWithFoods } from '../dataStructures';
 
 test('reduce animal favorite foods', () => {
+  const animalBirthDate = new Date();
   const animalWithFood = [
     {
       animalId: 1,
       animalFirstName: 'Lucia',
       animalType: 'Lion',
       animalAccessory: 'Car',
-      animalBirthDate: new Date(),
+      animalBirthDate: animalBirthDate,
       animalFoodId: 3,
       animalFoodName: 'Rice',
       animalFoodType: 'Grain',
@@ -18,7 +19,7 @@ test('reduce animal favorite foods', () => {
       animalFirstName: 'Lucia',
       animalType: 'Lion',
       animalAccessory: 'Car',
-      animalBirthDate: new Date(),
+      animalBirthDate: animalBirthDate,
       animalFoodId: 4,
       animalFoodName: 'Mango',
       animalFoodType: 'Fruit',
@@ -30,7 +31,7 @@ test('reduce animal favorite foods', () => {
     firstName: 'Lucia',
     type: 'Lion',
     accessory: 'Car',
-    birthDate: new Date(),
+    birthDate: animalBirthDate,
     animalFoods: [
       { id: 3, name: 'Rice', type: 'Grain' },
       { id: 4, name: 'Mango', type: 'Fruit' },

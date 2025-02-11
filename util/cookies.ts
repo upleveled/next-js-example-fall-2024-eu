@@ -9,9 +9,8 @@ export async function getCookie(name: string) {
 }
 
 export const secureCookieOptions = {
-  httpOnly: true,
-  path: '/',
-  sameSite: 'lax',
+  maxAge: 60 * 60 * 24, // Cookie expires in 24 hours
   secure: process.env.NODE_ENV === 'production',
-  maxAge: 60 * 60 * 24, // This expires in 24 hours
+  httpOnly: true,
+  sameSite: 'lax', // Prevent sending cookie with images or frames of your content originating on other websites
 } as const;
